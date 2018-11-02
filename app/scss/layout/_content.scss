@@ -1,0 +1,649 @@
+//main styles
+img {
+  display: block;
+}
+
+.wrapper {
+  min-width: $min-width;
+  max-width: $max-width;
+  padding: 0 15px 0 15px;
+  margin: 0 auto;
+  position: relative;
+
+  @include respond-to(lg) {
+    max-width: 960px;
+  }
+
+  @include respond-to(md) {
+    max-width: 720px;
+  }
+
+  @include respond-to(sm) {
+    max-width: 540px;
+  }
+
+  @include respond-to(xs) {
+    max-width: unset;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+.row {
+  margin-left: -15px;
+  margin-right: -15px;
+
+  @include respond-to(xs) {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.divinder {
+  width: 79px;
+  height: 1px;
+  margin: 12px auto 12px auto;
+  background-color: $gray;
+}
+
+/* titles */
+p {
+  @include font($base-font-size, $base-line-height, $text-color);
+  padding: 15px 0 15px 0;
+  font-weight: 400;
+}
+
+h1 {
+  @include font($font-size-h1, $line-height-h1, $title-color);
+  font-family: $title-font-family;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+}
+
+h2 {
+  @include font($font-size-h2, $line-height-h2, $title-color);
+  font-family: $title-font-family;
+  padding: 15px 0 15px 0;
+  font-weight: 400;
+}
+
+h3 {
+  @include font($font-size-h3, $line-height-h3, $title-color);
+  font-family: $title-font-family;
+  padding: 15px 0 15px 0;
+  font-weight: 400;
+}
+
+/* text position */
+.text-left {
+  text-align: left !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+.nowrap {
+  white-space: nowrap !important;
+}
+
+/* loader */
+.loaded .main-wrapper {
+  visibility: hidden;
+}
+
+.icon-load {
+  background: url(../img/loader.gif) no-repeat left top;
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  margin-left: -20px;
+  margin-left: -20px;
+  display: none;
+}
+
+.loaded .icon-load {
+  display: block;
+}
+
+/*
+================================================================================
+|                                     CONTENT                                 |
+================================================================================
+*/
+
+/*basic content styles*/
+.content {
+  &-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    @include respond-to(sm) {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__title {
+    padding-top: 39px;
+    padding-bottom: 35px;
+  }
+}
+/*basic content styles*/
+
+/*clothes items styles*/
+
+.clothes {
+  &__title {
+    color: $text-color;
+    font-family: $base-font-family;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 30px;
+    text-transform: uppercase;
+  }
+
+  &-similar {
+    padding-top: 6px;
+  }
+
+  &-container {
+    flex: 0 0 75%;
+    max-width: 75%;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 70px;
+
+    @include respond-to(md) {
+      flex: 0 0 66.667%;
+      max-width: 66.667%;
+    }
+
+    @include respond-to(sm) {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+
+    @include respond-to(xs) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  &-items {
+    padding-top: 1px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -15px;
+    margin-right: -15px;
+
+    @include respond-to(xs) {
+      justify-content: center;
+      margin: 0;
+    }
+
+    &-slider {
+      width: 900px;
+      margin-left: -15px;
+
+      @include respond-to(xl) {
+        width: 740px;
+      }
+
+      @include respond-to(md) {
+        width: 500px;
+      }
+
+      @include respond-to(sm) {
+        width: 570px;
+      }
+
+      @include respond-to(xs) {
+        width: 270px;
+        margin: 0 auto;
+      }
+
+      .clothes__item-inner {
+        margin: 13px 15px;
+        max-width: 270px
+      }
+
+      @include respond-to(xl) {
+        .clothes__item {
+          padding-left: 15px;
+          padding-right: 15px;
+        }
+
+        .clothes__item-inner {
+          margin: 13px 0px;
+        }
+      }
+    }
+  }
+
+  &__item {
+    .clothes-items & {
+      width: 33.3334%;
+      padding-left: 15px;
+      padding-right: 15px;
+      margin-bottom: 30px;
+
+      @include respond-to(md) {
+        width: 50%;
+      }
+
+      @include respond-to(xs) {
+        width: 55%;
+        min-width: 270px;
+      }
+    }
+
+    &-inner {
+      display: block;
+      width: 100%;
+      position: relative;
+      padding-bottom: 15px;
+      text-align: center;
+      color: $text-color;
+      font-family: $base-font-family;
+      font-size: 15px;
+      line-height: 30px;
+      background-color: $white;
+      border-radius: 4px;
+      box-shadow: 0 1px 2.8px 1.4px rgba(0, 0, 0, 0.09);
+
+      img {
+        width: 100%;
+      }
+
+      &:hover {
+        box-shadow: 0 5px 10.6px 1.4px rgba(68, 190, 217, 0.36),
+        0 -1px 2px 0px $blue;
+
+        .clothes__item-name {
+          color: $blue2;
+        }
+      }
+
+      &.new {
+        // Для лейба "Новинка"
+        &::before {
+          content: "Новинка";
+          position: absolute;
+          top: 11px;
+          left: 13px;
+          min-width: 64px;
+          background-color: $blue3;
+          border-radius: 3px;
+          color: $white;
+          font-family: $base-font-family;
+          font-size: 11px;
+          font-weight: 600;
+          line-height: 27px;
+          letter-spacing: -0.02em;
+          text-align: center;
+          text-transform: uppercase;
+        }
+      }
+
+      &.hot {
+        // Для лейба "Хит Продаж"
+        &::before {
+          content: "Хит продаж";
+          position: absolute;
+          top: 11px;
+          left: 11px;
+          min-width: 88px;
+          background-color: $orange;
+          border-radius: 3px;
+          color: $white;
+          font-family: $base-font-family;
+          font-size: 11px;
+          font-weight: 600;
+          line-height: 27px;
+          letter-spacing: -0.02em;
+          text-align: center;
+          text-transform: uppercase;
+        }
+      }
+    }
+
+    &-rating {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    &-star {
+      display: inline-block;
+      margin-right: 3px;
+      @include sprite($starempty);
+
+      .rating-1 &:nth-child(-n + 1) {
+        @include sprite($star);
+      }
+
+      .rating-2 &:nth-child(-n + 2) {
+        @include sprite($star);
+      }
+
+      .rating-3 &:nth-child(-n + 3) {
+        @include sprite($star);
+      }
+
+      .rating-4 &:nth-child(-n + 4) {
+        @include sprite($star);
+      }
+
+      .rating-5 &:nth-child(-n + 5) {
+        @include sprite($star);
+      }
+    }
+
+    &-name {
+      font-weight: 400;
+      margin-top: 10px;
+      letter-spacing: -0.01em;
+    }
+
+    &-price {
+      font-weight: 700;
+    }
+  }
+}
+
+/*clothes items styles*/
+
+/* fitler styles */
+
+.filter {
+  padding-left: 15px;
+  padding-right: 15px;
+  flex: 0 0 25%;
+  max-width: 25%;
+
+  @include respond-to(md) {
+    flex: 0 0 33.3334%;
+    max-width: 33.3334%;
+  }
+
+  @include respond-to(sm) {
+    flex: 0 0 50%;
+    max-width: 50%;
+    margin-bottom: 50px;
+  }
+
+  @include respond-to(xs) {
+    min-width: 260px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__form {
+    box-sizing: border-box;
+    background-color: $gray2;
+    border: 1px solid $gray3;
+    border-radius: 3px;
+    color: $gray4;
+    font-family: $custom2-font-family;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 24px;
+  }
+
+  &__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+    padding-left: 19px;
+    padding-right: 16px;
+    border-bottom: 1px solid $gray5;
+    color: $gray6;
+    font-family: $custom2-font-family;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 24px;
+    cursor: pointer;
+
+    &-icon {
+      display: inline-block;
+      transform: rotate(180deg);
+      transition: transform 0.5s ease 0s;
+      @include sprite($arrow);
+
+      .list-isClosed & {
+        transform: rotate(0);
+      }
+
+    }
+
+    &-vsSelect,
+    &-vsInput {
+      padding-right: 6px;
+    }
+  }
+
+  input[type="checkbox"] {
+    display: none;
+  }
+
+  :checked + span {
+    color: $blue4;
+    font-family: $custom2-font-family;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 24px;
+  }
+
+  &__list {
+    padding-left: 30px;
+    padding-right: 3px;
+    line-height: 28px;
+    border-bottom: 1px solid $gray5;
+    max-height: 180px;
+    overflow: hidden;
+    transition: max-height 1s ease-out 0s, border-bottom 1s ease-out 0s;
+
+    &-inner {
+      max-height: 180px;
+      padding-top: 6px;
+      padding-bottom: 10px;
+      overflow: hidden;
+    }
+
+    .list-isClosed & {
+      max-height: 0;
+      border-bottom: 0px solid $gray5;
+    }
+
+    &-point {
+      cursor: pointer;
+
+      label {
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__submit {
+    width: 100%;
+    color: $blue4;
+    font-family: $custom2-font-family;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 24px;
+    border: none;
+    height: 39px;
+    background: $gray2;
+  }
+
+  &__input {
+    width: 160px;
+    height: 30px;
+    background-color: $gray7;
+    border: 1px solid $gray5;
+    border-radius: 3px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.14);
+    color: $gray8;
+    font-family: $base-font-family;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 30px;
+    padding-left: 11px;
+    padding-right: 10px;
+
+    @include respond-to(lg) {
+      width: 100px;
+    }
+  }
+}
+
+/* fitler styles */
+
+/* scroll styles */
+.mCS-dark-thin.mCSB_scrollTools .mCSB_draggerRail {
+  background: transparent;
+}
+
+.mCS-dark-thin.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+  width: 3px;
+  background-color: $blue
+}
+
+.mCS-dark-thin.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar {
+  background-color: $blue
+}
+
+/* scroll styles */
+
+/* select styles */
+
+.jq-selectbox {
+  width: auto;
+}
+
+.jq-selectbox__select {
+  width: 160px;
+  height: 30px;
+  background-color: $gray7;
+  border: 1px solid $gray5;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.14);
+  border-radius: 3px;
+  color: $gray8;
+  font-family: $base-font-family;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 30px;
+  padding-top: 0;
+  padding-left: 12px;
+
+  @include respond-to(lg) {
+    width: 100px;
+  }
+}
+
+.opened .jq-selectbox__select {
+  border-color: $gray5;
+}
+
+.jq-selectbox__dropdown {
+  border: 1px solid $gray5;
+  color: $gray8;
+  font-family: OpenSans;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 46px;
+}
+
+.jq-selectbox li.selected,
+.jq-selectbox li:hover {
+  color: $gray8;
+  background: $gray5;
+}
+
+.jq-selectbox__select-text {
+  text-overflow: initial;
+}
+
+.jq-selectbox__trigger-arrow {
+  border: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  @include sprite($arrow);
+}
+/* select styles */
+
+/* slick custom styles */
+
+.slick-arrow {
+  width: 38px;
+  height: 38px;
+  background-color: $gray10;
+  border: 1px solid $gray9;
+  border-radius: 50%;
+  color: transparent;
+  overflow: hidden;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    @include sprite($slickarrow);
+  }
+}
+
+.slick-next {
+  transform: rotate(180deg);
+  order: 3;
+}
+
+.slick-dots {
+  list-style: none;
+  display: flex;
+  order: 2;
+  margin-left: 20px;
+  margin-right: 13px;
+
+  li {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    margin-right: 7px;
+
+    &.slick-active {
+      button {
+        background-color: $red;
+      }
+    }
+  }
+
+  button {
+    color: transparent;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    padding: 0;
+    border: none;
+    background-color: $gray;
+  }
+}
+
+.slider-navigations {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+/* slick custom styles */
